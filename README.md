@@ -85,6 +85,10 @@ python3 slice_funcs.py --file app.py --compare-trace real.tsv
 
 Relevance selection found the key issue with about a quarter of the whole-file input, and marked code it had not been shown as "unknown" instead of guessing. Differences in severity labels between runs came from the model, not from the amount of code.
 
+## Also included: apply_candidate.py
+
+A companion script for the other end of the loop: once a human has approved a change, [`apply_candidate.py`](APPLY_CANDIDATE.md) applies it safely — verify the receipt and hashes, back up, replace, run the tests in isolation, watch for leftover processes and unexpected file changes, and roll back if anything fails. When it refuses, it lists every problem at once instead of one per run. Environment-specific values (approvers, folders, watched paths, restart command) live in a config file; see `examples/legacy-layout.apply-candidate.json`. Run `python3 apply_candidate.py --self-test`.
+
 ## Known limits
 
 - Dynamic calls (functions stored in variables and called later, `getattr`) are only partly visible.

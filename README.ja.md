@@ -85,6 +85,10 @@ python3 slice_funcs.py --file app.py --compare-trace real.tsv
 
 関連の強さで選ぶと、全文の約4分の1の入力で要点を拾い、渡していない所は推測せず「見えない」と書いた。回ごとの重さの付け方の違いはモデル側のぶれで、渡した量とは関係が見えなかった。
 
+## 同梱: apply_candidate.py
+
+流れのもう一方の端の道具です。人が承認した変更を、[`apply_candidate.py`](APPLY_CANDIDATE.md)（説明は英語）が安全に反映します。受領書とハッシュの照合 → 退避 → 置き換え → テストを隔離して実行 → 残ったプロセスや想定外のファイルの変化の見張り → 失敗したら巻き戻し、の順です。拒否するときは、問題を1回で全部並べます。承認者・フォルダ・見張る場所・再起動のような環境ごとの値は設定ファイルに置きます（例: `examples/legacy-layout.apply-candidate.json`）。`python3 apply_candidate.py --self-test` で自己検査ができます。
+
 ## 限界
 
 - 変数に入れた関数を後で呼ぶ、`getattr` などの動的な呼び出しは一部しか見えない。

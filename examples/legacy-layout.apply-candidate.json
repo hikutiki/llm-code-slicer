@@ -1,0 +1,18 @@
+{
+  "approvers": ["Alice"],
+  "workspace_dir": "work/pending-changes",
+  "candidates_dir": "candidates",
+  "receipts_dir": "receipts",
+  "evidence_dir": "evidence",
+  "notes_dir": ".",
+  "project_id_pattern": "^PS-\\d{8}-\\d{2}$",
+  "approval_id_pattern": "^APR-\\d{8}-\\d{2}$",
+  "watch_dirs": ["app/runtime", ".claude"],
+  "ignore_files": [
+    ["app/runtime", "service-*.log"]
+  ],
+  "restart_command": ["true"],
+  "restart_check_log": null,
+  "os_process_names": ["mdworker_shared", "mdworker", "mds", "mds_stores"],
+  "flags_order_dir": "work/tmp/orders"
+}
