@@ -71,6 +71,19 @@ Starting from a deliberately incomplete slice, the reviewer was asked to name mi
 
 Two passes cost more than one whole-file pass (63k). Give the reviewer a relevance slice with callers in one pass; use `NEED` only as a fallback, always with a table of contents.
 
+## 5. Can a small local model fix a bug from a slice?
+
+A bug was planted in one function of the patch-apply script (3,416 lines): a duplicate-path check stopped ignoring case. The model got the bug report, the diff that introduced it, and the code — once, no test loop — and was asked to return the corrected function. Model: `qwen3.5:9b` on Ollama (temperature 0.2). The answer was spliced back and checked.
+
+| attached | lines | input tokens | output tokens | time | fixed? |
+|---|---|---|---|---|---|
+| relevance slice, 1% budget | 36 | 856 | 1,044 | 90 s | yes |
+| relevance slice, 5% budget | 158 | 2,833 | 559 | 48 s | yes |
+| relevance slice, 10% budget | 277 | 4,597 | 796 | 72 s | yes |
+| whole file | 3,416 | 56,256 | 905 | 546 s | yes |
+
+Every variant fixed it in one shot; the whole file needed about 66× the input and 7–11× the time. The bug was easy to locate from the diff, so the gain here is speed and input size rather than correctness.
+
 ## Reproduce on your own code
 
 ```sh
