@@ -1,0 +1,22 @@
+{
+ "accepted": {
+  "e53b58dc652a5aada6a41d2466a5eab4b5313a89": {
+   "label": "key/secret/token を含む変数への代入",
+   "file": "test_slice_funcs.py",
+   "date": "2026-09-25",
+   "by": "GITHUB_UPLOAD_OK"
+  },
+  "10ab86585496fd7c84b35cfabfec4d9b07cf5115": {
+   "label": "40桁hex（SHA1/鍵の疑い）",
+   "file": ".github_upload_check.baseline.json",
+   "date": "2026-09-25",
+   "by": "GITHUB_UPLOAD_OK"
+  },
+  "0098b30c7f174d60283d95794b156970bfcd1639": {
+   "label": "40桁hex（SHA1/鍵の疑い）",
+   "file": ".github_upload_check.baseline.json",
+   "date": "2026-09-25",
+   "by": "GITHUB_UPLOAD_OK"
+  }
+ }
+}
